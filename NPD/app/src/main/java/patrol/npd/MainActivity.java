@@ -7,14 +7,38 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.content.Intent;
+import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button login=(Button)findViewById(R.id.login_button);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+               // Toast.makeText(getApplicationContext(), "login pressed", Toast.LENGTH_LONG).show();
+                EditText userName=(EditText)findViewById(R.id.userName);
+                EditText password=(EditText)findViewById(R.id.password);
+                String user=userName.getText().toString();
+                String pass=password.getText().toString();
+                if(user.equals("arvind") && pass.equals("pass"))
+                {
+                    Toast.makeText(getApplicationContext(), "in if", Toast.LENGTH_LONG).show();
+                    Intent loggedin=new Intent(MainActivity.this,User.class);
+                    loggedin.putExtra("user_name",user);
+                    startActivity(loggedin);
+                }
+            }
+        });
     }
 
 
