@@ -21,6 +21,24 @@
             android:name=".User"
             android:label="@string/title_activity_user" >
         </activity>
+
+        <service
+            android:name=".SecondService"
+            android:exported="false" />
+        <service
+            android:name=".NPDIntentService"
+            android:exported="false" >
+        </service>
+        <service
+            android:name=".FirstService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+        <service
+            android:name=".SecondService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>
